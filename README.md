@@ -173,14 +173,46 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "lcd.h"
 
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+ 
+  Lcd_PortType ports[] = {GPIOA,GPIOA,GPIOA,GPIOA};
+  Lcd_PinType pins[] = {GPIO_PIN_3,GPIO_PIN_2,GPIO_PIN_1,GPIO_PIN_0};
 
+  Lcd_HandleTypeDef lcd;
+
+  lcd = Lcd_create(ports,pins,GPIOB,GPIO_PIN_0,GPIOB,GPIO_PIN_1,LCD_4_BIT_MODE);
+
+  Lcd_cursor(&lcd, 0,0);
+  Lcd_string(&lcd, "SURYA R");
+
+  Lcd_cursor(&lcd,1,0);
+  Lcd_string(&lcd, "212224040339");
+
+  HAL_Delay(500);
+
+  while (1)
+  {
+
+  }
+}
+```
 
 
 ## Output screen shots of proteus  :
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/19bc4a43-1637-408e-9538-a947401e9c87" />
+
  
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
+ <img width="1013" height="592" alt="image" src="https://github.com/user-attachments/assets/b3302c89-056b-485e-a42e-afabbd6c403f" />
+
  
  
 ## Result :
